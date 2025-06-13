@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, "styles", "imgs")));
 
 app.get("/", async (req, res) => {
     try {
-        const products = await Products.find();
+        const products = await Products.find({new: true});
         const blogs = await Blogs.find();
         res.render("index", { blogs, products });
     } catch (err) {

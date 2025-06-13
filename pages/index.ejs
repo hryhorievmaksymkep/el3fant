@@ -101,7 +101,7 @@
         %>
         <div class="carousel-section-product-card"> 
             <%randomProducts.forEach(product => {%> 
-            <a class="element">
+            <a class="element" url="/product/<%=product.id%>">
                 <div class="element-card" style="background-image: url('<%= product.img %>');">
                     <div class="element-card-budges">
                         <% if(product.new != false){%>
