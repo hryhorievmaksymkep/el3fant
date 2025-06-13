@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        
+        <!--fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&subset=cyrillic&display=swap" rel="stylesheet">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        
+        <title>Shop page</title>
+    </head>
+<body>
+    <!--menu-->
+    <%- include('./partials/nav') %>
+
+    <!--notification-->
+    <%- include('./partials/notification') %>
+
+    <!--Shop page header-->
+    <div class="shop-page-header">
+        <div class="shop-page-header-img">
+            <div class="shop-page-header-path">
+                <p class="grey-font">Головна <i class="fa-solid fa-chevron-right"></i></p>
+                <p>Магазин</p>
+            </div>
+            <h1 class="shop-page-header-title">Магазин</h1>
+            <p class="shop-page-header-slogan">Спроектуємо місце про яке ви мріяли</p>
+        </div>
+    </div>
+
+    <!--products grid-->
+    <section class="shop-page-grid">
+        <div class="shop-page-grid-toolbar">
+            <form class="shop-page-grid-toolbar-categories">
+                <label for="categories" class="grey-font">КАТЕГОРІЯ</label><br><br>
+                <select name="categories" id="categories">
+                    <option value="all">Все</option>
+                    <option value="living-room">Вітальня</option>
+                    <option value="bedroom">Спальня</option>
+                    <option value="bathroom">Ванна</option>
+                    <option value="kitchen">Кухня</option>
+                    <option value="outdoors">Двір</option>
+                </select>
+            </form>
+            <form class="shop-page-grid-toolbar-prices">
+                <label for="prices" class="grey-font">ЦІНА</label><br><br>
+                <select name="prices" id="prices">
+                    <option value="all">Всі ціни</option>
+                    <option value="0-5000">0₴ - 5000₴</option>
+                    <option value="5000-10000">5000₴ - 10000₴</option>
+                    <option value="10000-15000">10000₴ - 15000₴</option>
+                    <option value="15000-20000">15000₴ - 20000₴</option>
+                    <option value="20000-above">20000₴ +</option>
+                </select>
+            </form>
+            <form class="shop-page-grid-toolbar-sortby">
+                <label for="sortby" class="grey-font">СОРТУВАТИ</label><br><br>
+                <select name="sortby" id="sortby">
+                    <option value="from-chip-to-expensive">Від дешевих до дорогих</option>
+                    <option value="from-expensive-to-chip">Від дорогих до дешевих</option>
+                </select>
+            </form>
+            <button id="sorting">Застосувати фільтри</button>
+            <div class="shop-page-grid-toolbar-selectors">
+                <button class="snap-grid-3-3"><i class="fa-solid fa-table-cells"></i></button>
+                <button class="snap-grid-4-3"><i class="fa-solid fa-border-all"></i></button>
+                <button class="snap-grid-2-4"><i class="fa-solid fa-grip-lines"></i></button>
+                <button class="snap-grid-1-4"><i class="fa-solid fa-grip-lines-vertical"></i></button>
+            </div>
+        </div>
+
+        <div class="shop-page-grid-list">
+
+            <% products.forEach(product => {%>
+            <div class="element">
+                <div class="shop-element-card" style="background-image: url('<%= product.img %>');">
+                    <div class="shop-element-card-budges">
+
+                        <% if(product.new != false){%>
+                        <p class="shop-element-card-budges-new">НОВЕ</p>
+                        <% }; %>
+
+                        <% if(product.discount >= 0.05){%>
+                        <p class="shop-element-card-budges-sale"><%= (product.discount * 100) + "%" %></p>
+                        <% }; %>
+
+                    </div>
+                    <div class="shop-element-card-favourite">
+                        <div class="unliked"><i class="fa-regular fa-heart"></i></div>
+                        <div class="liked hide"><i class="fa-solid fa-heart"></i></div>
+                    </div>
+                    <div class="shop-element-card-button-hover">
+                        <p>Додати до кошика</p>
+                    </div>
+                </div>
+                <div class="shop-element-content">
+                    <p class="shop-element-content-stars"><%= product.rate %></p>
+                    <p class="shop-element-content-name"><%= product.name %></p>
+                    <p class="shop-element-content-prices">
+
+                        <% if(product.discount >= 0.05){%>
+                        <span class="shop-element-content-new-price">
+                            <%= (product.price - product.price * product.discount) + "₴" %>
+                        </span>
+
+                        <span class="shop-element-content-old-price grey-font">
+                            <%= product.price + "₴" %>
+                        </span>
+
+                        <% } else {%>
+
+                        <span class="shop-element-content-new-price">
+                            <%= product.price + "₴" %>
+                        </span>
+
+                        <% }; %>
+                    </p>
+                </div>
+            </div>
+            <%}); %>
+        </div>
+        <button class="shop-page-grid-button">Більше</button>
+    </section>
+
+    <!--newsletter signup-->
+    <%- include('./partials/newsletterSignUp') %>
+    
+    <!--footer-->
+    <%- include('./partials/footer') %>
+
+    <!--scripts-->
+    <script src="../scripts/like.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/snapGrid.js"></script>
+</body>
+</html>
