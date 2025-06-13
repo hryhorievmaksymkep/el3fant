@@ -61,9 +61,9 @@ app.get("/shop", (req, res) =>{
 app.post("/shop", (req, res) =>{
     let sort = {}, filter = {};
 
-    const categoryFilter = req.body.categories;
-    const priceFilter = req.body.prices;
-    const sortBy = req.body.sortby;
+    const categoryFilter = req.body.categories || "all";
+    const priceFilter = req.body.prices || "all";
+    const sortBy = req.body.sortby || "from-chip-to-expensive";
 
     if(categoryFilter != null && categoryFilter !== "all"){
         filter.categories = {$in: [categoryFilter]};
