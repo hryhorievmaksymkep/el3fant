@@ -9,7 +9,7 @@ const Users = require("./models/userModel");
 
 //express app
 const app = express();
-
+const PORT = process.env.PORT || 10000;
 //ejs
 app.set("view engine", "ejs");
 app.set("views", "pages");
@@ -17,7 +17,7 @@ app.set("views", "pages");
 //DB
 mongoose.connect('mongodb+srv://maksym:1234@cluster0.fcn5ca4.mongodb.net/el3fant?retryWrites=true&w=majority&appName=Cluster0', {
 })
-.then(() => app.listen(3000))
+.then(() => app.listen(PORT))
 .catch((err) => console.error('Error:', err));
 
 //routing
