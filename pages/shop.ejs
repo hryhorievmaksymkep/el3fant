@@ -39,36 +39,43 @@
     <!--products grid-->
     <section class="shop-page-grid">
         <div class="shop-page-grid-toolbar">
-            <form class="shop-page-grid-toolbar-categories">
-                <label for="categories" class="grey-font">КАТЕГОРІЯ</label><br><br>
-                <select name="categories" id="categories">
-                    <option value="all">Все</option>
-                    <option value="living-room">Вітальня</option>
-                    <option value="bedroom">Спальня</option>
-                    <option value="bathroom">Ванна</option>
-                    <option value="kitchen">Кухня</option>
-                    <option value="outdoors">Двір</option>
-                </select>
+            <form action="/shop" method="POST" class="shop-page-grid-toolbar">
+
+                <div class="shop-page-grid-toolbar-categories">
+                    <label for="categories" class="grey-font">КАТЕГОРІЯ</label><br><br>
+                    <select name="categories" id="categories">
+                        <option value="all">Все</option>
+                        <option value="living-room">Вітальня</option>
+                        <option value="bedroom">Спальня</option>
+                        <option value="bathroom">Ванна</option>
+                        <option value="kitchen">Кухня</option>
+                        <option value="outdoors">Двір</option>
+                    </select>
+                </div>
+
+                <div class="shop-page-grid-toolbar-prices">
+                    <label for="prices" class="grey-font">ЦІНА</label><br><br>
+                    <select name="prices" id="prices">
+                        <option value="all">Всі ціни</option>
+                        <option value="0-5000">0₴ - 5000₴</option>
+                        <option value="5000-10000">5000₴ - 10000₴</option>
+                        <option value="10000-15000">10000₴ - 15000₴</option>
+                        <option value="15000-20000">15000₴ - 20000₴</option>
+                        <option value="20000-above">20000₴ +</option>
+                    </select>
+                </div>
+
+                <div class="shop-page-grid-toolbar-sortby">
+                    <label for="sortby" class="grey-font">СОРТУВАТИ</label><br><br>
+                    <select name="sortby" id="sortby">
+                        <option value="from-chip-to-expensive">Від дешевих до дорогих</option>
+                        <option value="from-expensive-to-chip">Від дорогих до дешевих</option>
+                    </select>
+                </div>
+
+                <button id="sorting" type="submit">Застосувати фільтри</button>
+
             </form>
-            <form class="shop-page-grid-toolbar-prices">
-                <label for="prices" class="grey-font">ЦІНА</label><br><br>
-                <select name="prices" id="prices">
-                    <option value="all">Всі ціни</option>
-                    <option value="0-5000">0₴ - 5000₴</option>
-                    <option value="5000-10000">5000₴ - 10000₴</option>
-                    <option value="10000-15000">10000₴ - 15000₴</option>
-                    <option value="15000-20000">15000₴ - 20000₴</option>
-                    <option value="20000-above">20000₴ +</option>
-                </select>
-            </form>
-            <form class="shop-page-grid-toolbar-sortby">
-                <label for="sortby" class="grey-font">СОРТУВАТИ</label><br><br>
-                <select name="sortby" id="sortby">
-                    <option value="from-chip-to-expensive">Від дешевих до дорогих</option>
-                    <option value="from-expensive-to-chip">Від дорогих до дешевих</option>
-                </select>
-            </form>
-            <button id="sorting">Застосувати фільтри</button>
             <div class="shop-page-grid-toolbar-selectors">
                 <button class="snap-grid-3-3"><i class="fa-solid fa-table-cells"></i></button>
                 <button class="snap-grid-4-3"><i class="fa-solid fa-border-all"></i></button>
@@ -80,7 +87,7 @@
         <div class="shop-page-grid-list">
 
             <% products.forEach(product => {%>
-            <div class="element">
+            <a class="element" href="product/<%= product._id %>">
                 <div class="shop-element-card" style="background-image: url('<%= product.img %>');">
                     <div class="shop-element-card-budges">
 
@@ -124,7 +131,7 @@
                         <% }; %>
                     </p>
                 </div>
-            </div>
+            </a>
             <%}); %>
         </div>
         <button class="shop-page-grid-button">Більше</button>

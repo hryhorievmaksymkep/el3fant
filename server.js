@@ -58,6 +58,47 @@ app.get("/shop", (req, res) =>{
     });
 });
 
+app.post("/shop", (req, res) =>{
+    let sort = {}, filter = {};
+
+    const categoryFilter = req.body.categories;
+    const priceFilter = req.body.prices;
+    const sortBy = req.body.sortby;
+
+    if(categoryFilter != null && categoryFilter !== "all"){
+        filter.categories = [categoryFilter];
+    };
+    if(priceFilter != null && priceFilter !== "all"){
+        switch(priceFilter){
+            case "0-5000":
+                sort.price = {$gt: 0, $lte: 5000};
+            case "5000-10000":
+                sort.price = {$gte: 5000, $lte: 10000};
+            case "10000-15000":
+                sort.price = {$gte: 10000, $lte: 15000};
+            case "15000-20000":
+                sort.price = {$gte: 15000, $lte: 20000};
+            case "20000-above":
+                sort.price = {$gte: 20000};
+        };
+    };
+    if(sortBy != null){
+        if (selectedSort === "from-chip-to-expensive") {
+            sort.price = 1;
+        } else if (selectedSort === "from-expensive-to-chip") {
+            sort.price = -1;
+        };
+    };
+
+    Products.find(filter).sort(sort)
+        .then((result) =>{
+            res.render("shop", {products: result})
+        })
+        .catch((err) =>{
+            console.log(err);
+        });
+});
+
 app.get("/form", (req, res) =>{
     res.render("form");
 });
