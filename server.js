@@ -21,6 +21,8 @@ mongoose.connect('mongodb+srv://maksym:1234@cluster0.fcn5ca4.mongodb.net/el3fant
 .catch((err) => console.error('Error:', err));
 
 //routing
+app.use(express.urlencoded({extended: true}));
+
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, "styles", "imgs")));
 
@@ -63,8 +65,13 @@ app.get("/signIn", (req, res) =>{
     res.render("signIn");
 });
 
-app.get("/product", (req, res) =>{
-    res.render("product");
+app.get("/product/:id", (req, res) =>{
+    const id = req.params.id;
+    Products.findById(id)
+    .then((result) =>{res.render("product", {product: result})})
+    .catch((err) =>{
+        console.log(err);
+    });
 });
 
 app.use((req, res) => {
