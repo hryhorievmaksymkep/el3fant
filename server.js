@@ -65,10 +65,10 @@ app.post("/shop", (req, res) =>{
     const priceFilter = req.body.prices || "all";
     const sortBy = req.body.sortby || "from-chip-to-expensive";
 
-    if(categoryFilter != null && categoryFilter !== "all"){
+    if(categoryFilter !== "all"){
         filter.categories = {$in: [categoryFilter]};
     };
-    if(priceFilter != null && priceFilter !== "all"){
+    if(priceFilter !== "all"){
         switch(priceFilter){
             case "0-5000":
                 filter.price = {$gt: 0, $lte: 5000};
@@ -87,17 +87,15 @@ app.post("/shop", (req, res) =>{
                 break;
         };
     };
-    if(sortBy != null){
-        if (sortBy === "from-chip-to-expensive") {
-            sort.price = 1;
-        } else if (sortBy === "from-expensive-to-chip") {
-            sort.price = -1;
-        };
+    if (sortBy === "from-chip-to-expensive") {
+        sort.price = 1;
+    } else if (sortBy === "from-expensive-to-chip") {
+        sort.price = -1;
     };
 
     Products.find(filter).sort(sort)
         .then((result) =>{
-            res.render("shop", {products: result, categoryFilter, priceFilter, sortBy});
+            res.render("shop", {products: result, selectedCategory: categoryFilter, selectedPrice: priceFilter, sortBy: sortBy});
         })
         .catch((err) =>{
             console.log(err);
