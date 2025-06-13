@@ -97,7 +97,7 @@ app.post("/shop", (req, res) =>{
 
     Products.find(filter).sort(sort)
         .then((result) =>{
-            res.render("shop", {products: result})
+            res.render("shop", {products: result, categoryFilter, priceFilter, sortBy});
         })
         .catch((err) =>{
             console.log(err);
