@@ -1,31 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const product = JSON.parse(localStorage.getItem("selectedProduct"));
-
-    if (!product) {
-        document.body.innerHTML = "<p>Товар не знайдено.</p>";
-        return;
-    }
-
-    document.querySelector(".product-details-title").textContent = product.name;
-    document.querySelector(".product-image-placeholder").style.backgroundImage = "url(../" + product.img + ")";
-    document.querySelector(".product-details-stars").textContent = product.rate;
-    
-    if(product.new == true){
-        document.querySelector(".shop-element-card-budges-new").classList.remove("hide");
-    };
-    if(product.discount != null){
-        document.querySelector(".shop-element-card-budges-sale").classList.remove("hide");
-        document.querySelector(".shop-element-card-budges-sale").textContent = product.discount * 100 + "%";
-        document.querySelector(".product-details-old-price").textContent = product.price + "₴";
-        document.querySelector(".product-details-new-price").textContent = product.price - (product.price * product.discount) + "₴";
-    }
-    else{
-        document.querySelector(".product-details-old-price").classList.add("hide");
-        document.querySelector(".product-details-new-price").textContent = product.price + "₴";
-    };
-
-});
-
 const colorBlack = document.getElementById("product-details-colors-black");
 const colorGrey = document.getElementById("product-details-colors-grey");
 const colorWhite = document.getElementById("product-details-colors-white");
