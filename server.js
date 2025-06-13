@@ -66,26 +66,31 @@ app.post("/shop", (req, res) =>{
     const sortBy = req.body.sortby;
 
     if(categoryFilter != null && categoryFilter !== "all"){
-        filter.categories = [categoryFilter];
+        filter.categories = {$in: [categoryFilter]};
     };
     if(priceFilter != null && priceFilter !== "all"){
         switch(priceFilter){
             case "0-5000":
-                sort.price = {$gt: 0, $lte: 5000};
+                filter.price = {$gt: 0, $lte: 5000};
+                break;
             case "5000-10000":
-                sort.price = {$gte: 5000, $lte: 10000};
+                filter.price = {$gte: 5000, $lte: 10000};
+                break;
             case "10000-15000":
-                sort.price = {$gte: 10000, $lte: 15000};
+                filter.price = {$gte: 10000, $lte: 15000};
+                break;
             case "15000-20000":
-                sort.price = {$gte: 15000, $lte: 20000};
+                filter.price = {$gte: 15000, $lte: 20000};
+                break;
             case "20000-above":
-                sort.price = {$gte: 20000};
+                filter.price = {$gte: 20000};
+                break;
         };
     };
     if(sortBy != null){
-        if (selectedSort === "from-chip-to-expensive") {
+        if (sortBy === "from-chip-to-expensive") {
             sort.price = 1;
-        } else if (selectedSort === "from-expensive-to-chip") {
+        } else if (sortBy === "from-expensive-to-chip") {
             sort.price = -1;
         };
     };
