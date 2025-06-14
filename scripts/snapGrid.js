@@ -23,20 +23,6 @@ gridButtons["4-3"].addEventListener("click", () => setGridLayout("4-3"));
 gridButtons["2-4"].addEventListener("click", () => setGridLayout("2-4"));
 gridButtons["1-4"].addEventListener("click", () => setGridLayout("1-4"));
 
-
-//like
-for (let i = 0; i < Array.from(document.getElementsByClassName('unliked')).length; i++) {
-    Array.from(document.getElementsByClassName('unliked'))[i].addEventListener("click", () => {
-        Array.from(document.getElementsByClassName('liked'))[i].classList.remove("hide");
-        Array.from(document.getElementsByClassName('unliked'))[i].classList.add("hide");
-    });
-
-    Array.from(document.getElementsByClassName('liked'))[i].addEventListener("click", () => {
-        Array.from(document.getElementsByClassName('unliked'))[i].classList.remove("hide");
-        Array.from(document.getElementsByClassName('liked'))[i].classList.add("hide");
-    });
-}
-
 //handle screen change
 function screenChange(width){
   if (width.matches) {
