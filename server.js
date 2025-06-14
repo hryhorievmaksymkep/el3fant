@@ -52,7 +52,12 @@ app.get("/contacts", (req, res) =>{
 
 app.get("/shop", (req, res) =>{
     Products.find()
-    .then((result) =>{res.render("shop", {products: result})})
+    .then((result) =>{res.render("shop", {
+        products: result,                 
+        categoryFilter: "all",
+        priceFilter: "all",
+        sortBy: "from-chip-to-expensive"
+    })})
     .catch((err) =>{
         console.log(err);
     });
@@ -95,7 +100,12 @@ app.post("/shop", (req, res) =>{
 
     Products.find(filter).sort(sort)
         .then((result) =>{
-            res.render("shop", {products: result, selectedCategory: categoryFilter, selectedPrice: priceFilter, sortBy: sortBy});
+            res.render("shop", {
+                products: result,
+                categoryFilter,
+                priceFilter,
+                sortBy
+            });
         })
         .catch((err) =>{
             console.log(err);
