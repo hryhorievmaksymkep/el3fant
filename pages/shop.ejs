@@ -42,29 +42,29 @@
             <form action="/shop" method="POST" class="shop-page-grid-toolbar">
 
                 <!--Category-->
-                <select name="categories" id="categories">
-                <option value="all" <%= categoryFilter === "all" ? "selected" : "" %>>Все</option>
-                <option value="living-room" <%= categoryFilter === "living-room" ? "selected" : "" %>>Вітальня</option>
-                <option value="bedroom" <%= categoryFilter === "bedroom" ? "selected" : "" %>>Спальня</option>
-                <option value="bathroom" <%= categoryFilter === "bathroom" ? "selected" : "" %>>Ванна</option>
-                <option value="kitchen" <%= categoryFilter === "kitchen" ? "selected" : "" %>>Кухня</option>
-                <option value="outdoors" <%= categoryFilter === "outdoors" ? "selected" : "" %>>Двір</option>
+                <select name="categories" id="categories" class="shop-page-grid-toolbar-categories">
+                    <option value="all" <%= categoryFilter === "all" ? "selected" : "" %>>Все</option>
+                    <option value="living-room" <%= categoryFilter === "living-room" ? "selected" : "" %>>Вітальня</option>
+                    <option value="bedroom" <%= categoryFilter === "bedroom" ? "selected" : "" %>>Спальня</option>
+                    <option value="bathroom" <%= categoryFilter === "bathroom" ? "selected" : "" %>>Ванна</option>
+                    <option value="kitchen" <%= categoryFilter === "kitchen" ? "selected" : "" %>>Кухня</option>
+                    <option value="outdoors" <%= categoryFilter === "outdoors" ? "selected" : "" %>>Двір</option>
                 </select>
 
                 <!--Price-->
-                <select name="prices" id="prices">
-                <option value="all" <%= priceFilter === "all" ? "selected" : "" %>>Всі ціни</option>
-                <option value="0-5000" <%= priceFilter === "0-5000" ? "selected" : "" %>>0₴ - 5000₴</option>
-                <option value="5000-10000" <%= priceFilter === "5000-10000" ? "selected" : "" %>>5000₴ - 10000₴</option>
-                <option value="10000-15000" <%= priceFilter === "10000-15000" ? "selected" : "" %>>10000₴ - 15000₴</option>
-                <option value="15000-20000" <%= priceFilter === "15000-20000" ? "selected" : "" %>>15000₴ - 20000₴</option>
-                <option value="20000-above" <%= priceFilter === "20000-above" ? "selected" : "" %>>20000₴ +</option>
+                <select name="prices" id="prices" class="shop-page-grid-toolbar-prices">
+                    <option value="all" <%= priceFilter === "all" ? "selected" : "" %>>Всі ціни</option>
+                    <option value="0-5000" <%= priceFilter === "0-5000" ? "selected" : "" %>>0₴ - 5000₴</option>
+                    <option value="5000-10000" <%= priceFilter === "5000-10000" ? "selected" : "" %>>5000₴ - 10000₴</option>
+                    <option value="10000-15000" <%= priceFilter === "10000-15000" ? "selected" : "" %>>10000₴ - 15000₴</option>
+                    <option value="15000-20000" <%= priceFilter === "15000-20000" ? "selected" : "" %>>15000₴ - 20000₴</option>
+                    <option value="20000-above" <%= priceFilter === "20000-above" ? "selected" : "" %>>20000₴ +</option>
                 </select>
 
                 <!--SortBy-->
-                <select name="sortby" id="sortby">
-                <option value="from-chip-to-expensive" <%= sortBy === "from-chip-to-expensive" ? "selected" : "" %>>Від дешевих до дорогих</option>
-                <option value="from-expensive-to-chip" <%= sortBy === "from-expensive-to-chip" ? "selected" : "" %>>Від дорогих до дешевих</option>
+                <select name="sortby" id="sortby" class="shop-page-grid-toolbar-sortby">
+                    <option value="from-chip-to-expensive" <%= sortBy === "from-chip-to-expensive" ? "selected" : "" %>>Від дешевих до дорогих</option>
+                    <option value="from-expensive-to-chip" <%= sortBy === "from-expensive-to-chip" ? "selected" : "" %>>Від дорогих до дешевих</option>
                 </select>
 
                 <button id="sorting" type="submit">Застосувати фільтри</button>
