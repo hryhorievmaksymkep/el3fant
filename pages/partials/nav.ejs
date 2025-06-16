@@ -23,8 +23,14 @@
                     <i class="fa-solid fa-x burger-menu-close grey-font"></i>
                 </div>
                 <div class="phone-menu-top-search">
-                    <span><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <input type="text" placeholder="Шукати">
+                    <form action="/shopSearch" method="post">
+                        <input
+                            type="text"
+                            name="search"
+                            placeholder="Шукати"
+                            >
+                            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
                 </div>
                 <div class="phone-menu-top-menus">
                     <a href="/">Головна</a>
@@ -35,16 +41,16 @@
             </div>
             <div class="phone-menu-bottom">
                 <div class="phone-menu-bottom-cart">
-                    <p>Кошик</p>
+                    <a href="/accountCart">Кошик</a>
                     <div class="phone-menu-bottom-cart-count">
-                        <a href="/error404"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="/account"><i class="fa-solid fa-cart-shopping"></i></a>
                         <div class="cart-count">
                             <span>0</span>
                         </div>          
                     </div>
                 </div>
                 <div class="phone-menu-bottom-wishlist">
-                    <p>Вподобане</p>
+                    <a href="/accountWishlist">Вподобане</a>
                     <div class="phone-menu-bottom-wishlist-count">
                         <i class="fa-regular fa-heart"></i>
                         <div class="cart-count">
@@ -52,7 +58,7 @@
                         </div>          
                     </div>
                 </div>
-                <a class="phone-menu-sign-in" href="/form">Зареєструватись</a>
+                <a class="phone-menu-sign-in" href="/SignIn">Зареєструватись</a>
                 <div class="phone-menu-social-icons">
                     <a><i class="fa-brands fa-instagram"></i></a>
                     <a><i class="fa-brands fa-facebook"></i></a>
@@ -61,14 +67,19 @@
             </div>
         </div>
         <div class="right-nav-panel">
-            <div class="search hide">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
+            <form action="/shopSearch" method="post" class="search hide">
+                <input
+                    type="text"
+                    name="search"
+                    placeholder="Шукати" 
+                >
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
             <div class="account hide">
-                <a href="/form."><i class="fa-solid fa-user"></i></a>
+                <a href="/account"><i class="fa-solid fa-user"></i></a>
             </div>
             <div class="cart-btn">
-                <a href="/error404"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="/accountCart"><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
             <div class="cart-count">
                 <span>0</span>

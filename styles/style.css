@@ -82,9 +82,23 @@ button{
 .cart-btn, .search, .account{
     cursor: pointer;
 }
+.search{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: absolute;
+    left: 65%;
+}
+.search input{
+    font-size: 18px;
+    max-width: 160px;
+}
+.search button{
+    font-size: 24px;
+}
 .pc-menu a{
     text-decoration: none;
-} 
+}
 .phone-menu{
     display: flex;
     flex-direction: column;
@@ -125,11 +139,12 @@ button{
     padding: 10px;
     gap: 8px;
 }
-.phone-menu-top-search span{
+.phone-menu-top-search button{
     font-size: 24px;
 }
 .phone-menu-top-search input{
     border: none;
+    font-size: 20px;
 }
 .phone-menu-top-menus{
     display: flex;
@@ -1218,7 +1233,6 @@ button{
     gap: 10px;
     cursor: pointer;
     box-shadow: 0px 8px 16px -8px #0F0F0F1F;
-    z-index: 100;
 }
 .element-card-button-hover{
     display: flex;
@@ -1237,7 +1251,6 @@ button{
     visibility: hidden;
     transition: opacity 0.5s, visibility 0.5s;
     cursor: pointer;
-    z-index: 100;
 }
 .element-card{
     width: 230px;
