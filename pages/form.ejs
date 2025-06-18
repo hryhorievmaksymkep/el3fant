@@ -22,13 +22,12 @@
         <div class="sign-image-placeholder">
             <p><a href="/">3lefant</a></p>
         </div>
-        <form class="reg-form">
+        <form class="reg-form" method="post" action="/signIn">
             <h1>Реєстрація</h1>
-            <p>Вже маєте акаунт? <a href="/signIn" class="another-form">Увійти</a></p>
-            <input type="text" id="reg-name" placeholder="Ваше ім'я" required>
-            <input type="text" id="reg-nickname" placeholder="Нікнейм" required>
-            <input type="email" id="reg-email" placeholder="Email адреса" required>
-            <input type="password" id="reg-password" placeholder="Пароль" required>
+            <p>Вже маєте акаунт? <a href="/logIn" class="another-form">Увійти</a></p>
+            <input type="text" id="reg-nickname" placeholder="Нікнейм" name="username" required>
+            <input type="email" id="reg-email" placeholder="Email адреса" name="email" required>
+            <input type="password" id="reg-password" placeholder="Пароль" name="password" required>
             <input type="radio" id="reg-radio" required>
             <div>
                 <span class="grey-font">Я погоджуюсь з </span>
@@ -36,7 +35,7 @@
                 <span class="grey-font">та</span>
                 <p>Правилами користування</p>
             </div>
-            <button type="submit"  class="sign-form-button"><a href="/">Зареєструватись</a></button>
+            <button type="submit"  class="sign-form-button"><p style="color: white;">Зареєструватись</p></button>
         </form>
     </div>
 </body>

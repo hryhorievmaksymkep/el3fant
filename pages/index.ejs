@@ -119,9 +119,10 @@
                             <i class="fa-solid fa-heart"></i>
                         </div>
                     </div>
-                    <div class="element-card-button-hover">
-                        <p>Додати до кошика</p>
-                    </div>
+                    <form class="element-card-button-hover" method="post" action="/AddToCart">
+                        <input type="text" class="hide" name="index" value="<%= product._id %>">
+                        <button type="submit">Додати до кошика</button>
+                    </form>
                 </div>
                 <div class="element-content">
                     <p class="element-content-stars"><%= product.rate %></p>

@@ -22,7 +22,7 @@ app.set("views", "pages");
 //DB
 mongoose.connect('mongodb+srv://maksym:1234@cluster0.fcn5ca4.mongodb.net/el3fant?retryWrites=true&w=majority&appName=Cluster0', {
 })
-.then(() => app.listen(PORT))
+.then(() => app.listen(3000))
 .catch((err) => console.error('Error:', err));
 
 //routing

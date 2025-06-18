@@ -10,7 +10,7 @@ sliderNavDots = [
 
 images = [
     "https://mebliromax.com.ua/sites/default/files/2023-12/beylis_polo-15.jpg",
-    "https://vetromebel.com/storage/17329/66b4b94a5245a_654909d8842f7_m-70-siriy-chorniy3.jpg",
+    "https://www.worldfurnitureonline.com/wp-content/uploads/2019/07/World-Furniture-Online_46-scaled.jpg",
     "https://images.prom.ua/4795434210_w600_h600_4795434210.jpg",
 ];
 

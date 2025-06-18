@@ -539,6 +539,52 @@ button{
     font-size: 14px;
 }
 
+/*ACCOUNT*/
+
+/*nav*/
+.account{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 24px;
+}
+.account-nav{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 150px 0 50px 0;
+}
+.account-nav button{
+    padding: 10px 5px;
+    background-color: #eeeded;
+    border: black solid 1px;
+    border-radius: 4px 0 4px 0;
+    min-width: 100px;
+}
+.account-info-username{
+    font-size: 24px;
+    font-weight: 500;
+}
+.account-info-email{
+    font-size: 18px;
+}
+.account-product-card{
+    display: flex;
+    flex-direction: row;
+    padding: 20px 100px;
+    border: black solid 1px;
+    border-radius: 4px;
+    max-width: 350px;
+    max-height: 150px;
+}
+.account-cart, .account-wishlist{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+
 /*SHOP PAGE*/
 
 /*shop page header*/
